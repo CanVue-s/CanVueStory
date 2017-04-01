@@ -5,6 +5,7 @@
   <meta charset='UTF-8'>
   <title>Host</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="./../jquery.min.js"></script>
   <link rel='stylesheet' href='/host/host.css'></link>
 </head>
 
@@ -23,9 +24,10 @@
             <button type='button' class='btn btn-primary' style='color: gainsboro; float: right; margin-top: 18px; margin-right: -14px'>Save Notes</button>
           </div>
         </div>
-        <textarea></textarea>
+        <textarea id="notes"></textarea>
+        <div id="saveDate" style='float: left'></div>
         <div class='row' style='margin: 0px'>
-          <a style='margin-right: auto; margin-left: auto' href='/home/home.html'><button type='button' class='btn btn-default'>Leave Room</button></a>
+          <a style='margin-right: auto; margin-left: auto' href='/'><button id='leave' type='button' class='btn btn-default'>Leave Room</button></a>
         </div>
       </div>
     </div>
@@ -41,5 +43,6 @@
   }
 
 </script>
+<script src='/host/host.js'></script>
 
 </html>
