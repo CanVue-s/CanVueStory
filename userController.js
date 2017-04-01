@@ -37,7 +37,6 @@ const userController = {
 
   updateUser(req, res) {
     const user = req.params.user;
-    const newNumber = req.body.number;
     const newNotes = req.body.notes;
     console.log(req.body);
 
@@ -45,7 +44,6 @@ const userController = {
       { user: user },
       {
         $set: {
-          number: newNumber,
           notes: newNotes
         }
       }, function (err, result) {
