@@ -5,6 +5,7 @@
   <meta charset='UTF-8'>
   <title>Host</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="./../jquery.min.js"></script>
   <link rel='stylesheet' href='/host/host.css'></link>
 </head>
 
@@ -15,21 +16,33 @@
         <iframe id='htmlCanvas' src='./../canvas/canvas.html'></iframe>
       </div>
       <div class='col-sm-4'>
-        <h2>Notes</h2>
-        <textarea></textarea>
-          <button type='button' class='btn' style='float: right'>Save</button>
+        <div class='row' style='padding: 0px;'>
+          <div class='col-sm-6'>
+            <h2>Notes</h2>
+          </div>
+          <div class='col-sm-6' style='padding-right: 0px'>
+            <button type='button' class='btn btn-primary' style='color: gainsboro; float: right; margin-top: 18px; margin-right: -14px'>Save Notes</button>
+          </div>
+        </div>
+        <textarea id="notes"></textarea>
+        <div id="saveDate" style='float: left'></div>
+        <div class='row' style='margin: 0px'>
+          <a style='margin-right: auto; margin-left: auto' href='/'><button id='leave' type='button' class='btn btn-default'>Leave Room</button></a>
+        </div>
       </div>
     </div>
   </div>
-  <button type='button' class='btn btn-lg' style='margin-left: 47.5%'><a href='/home/home.html'>Leave Room</a></button>
 </body>
 <script src='./../socket.io/socket.io.js'></script>
 <script src='./../canvas/canvas.js'></script>
 <script>
- -  function clearCanvas() {
- -    var canvas = document.getElementsByClassName('whiteboard')[0];
- -    var context = canvas.getContext('2d');
- -    context.clearRect(0, 0, canvas.width, canvas.height);
- -  }
- -</script>
+  function clearCanvas() {
+    var canvas = document.getElementsByClassName('whiteboard')[0];
+    var context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+</script>
+<script src='/host/host.js'></script>
+
 </html>

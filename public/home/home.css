@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 * {
   -webkit-box-sizing: border-box;
@@ -14,6 +15,9 @@ body {
 
 h1 {
   font-weight: 800;
+  font-size: 60px;
+  font-family: 'Permanent Marker', cursive;
+  color: purple;
 }
 
 .container {
@@ -25,7 +29,6 @@ h1 {
 }
 
 .col-sm-8 {
-  /*position: absolute;*/
   margin-top: 20px;
   padding-top: 15px;
   top: 50%;
@@ -37,7 +40,6 @@ h1 {
 
 .link-div {
   padding-bottom: 15px;
-  color: hotpink;
-  font-size: 20px;
+  font-size: 16px;
 }
 
