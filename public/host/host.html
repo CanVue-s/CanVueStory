@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Host</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/host/host.css'></link>
+</head>
+
+<body style='background-color: grey'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-8'>
+        <iframe id='htmlCanvas' src='./../canvas/canvas.html'></iframe>
+      </div>
+      <div class='col-sm-4'>
+        <h2>Notes</h2>
+        <textarea></textarea>
+          <button type='button' class='btn' style='float: right'>Save</button>
+      </div>
+    </div>
+  </div>
+  <button type='button' class='btn btn-lg' style='margin-left: 47.5%'><a href='/home/home.html'>Leave Room</a></button>
+</body>
+<script src='./../socket.io/socket.io.js'></script>
+<script src='./../canvas/canvas.js'></script>
+<script>
+  function clearCanvas() {
+    var canvas = document.getElementsByClassName('whiteboard')[0];
+    var context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+</script>
+
+</html>
