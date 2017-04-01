@@ -4,6 +4,7 @@
 
 
 .container {
+  margin-top: 20px;
   height: auto;
 }
 
@@ -22,6 +23,14 @@ textarea {
   resize: none;
   width: 100%;
   height: 400px;
+}
+
+a {
+  color: black;
+}
+
+.btn-default:hover {
+  background-color: indianred;
 }
 
 /**
@@ -80,6 +89,12 @@ html, body {
 .color.white { background: #ccc url(eraser.png); width: 48px; height: 48px};
 
 
+@media screen and (min-width: 1200px){ 
+  #htmlCanvas {
+    width: 725px;
+  }
+}
+
 @media screen and (max-width: 1199px) and (min-width: 1000px) { 
   #htmlCanvas {
     width: 590px;
@@ -114,8 +129,3 @@ html, body {
     height: 175px;
   }
 }
-
-/*@media screen and (max-width: 400px) {
-    #htmlCanvas {
-      width: 151.2px;
-    }*/
