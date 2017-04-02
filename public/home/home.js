@@ -28,26 +28,18 @@ function getUserNumber() {
 
 $(document).ready(function () {
 
+  // Check database at intervals for updates in user number
   setInterval(function () {
     getUserNumber();
     if (globalUserNum === 1) $('#room1').text('Room 1:  ' + globalUserNum.toString() + ' User');
     if (globalUserNum > 1) $('#room1').text('Room 1:  ' + globalUserNum.toString() + ' Users');
   }, 500);
 
-  if (globalUserNum === 0) {
-    $.ajax({
-      url: URL + '/create',
-      type: "POST",
-      data: sendObj('tracker', '0'),
-      dataType: "json",
-      contentType: "application/json"
-    });
-  }
-
   $('#rooms').on('click', 'a', function (event) {
     let user = event.target.innerHTML.slice(9, 10);
     user = parseInt(user) + 1;
 
+    // create or update tracker to keep track of numbers of users
     $.ajax({
       url: URL + '/notes/tracker',
       type: "PUT",
