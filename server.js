@@ -6,9 +6,11 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const userController = require('./userController');
 
+const mongoUrl = 'mongodb://jeffreyma:jeffreyma@ec2-52-89-83-246.us-west-2.compute.amazonaws.com:27017/scratchDB';
 const PORT = 3000;
 
-mongoose.connect('mongodb://jeffreyma:jeffreyma@ec2-52-89-83-246.us-west-2.compute.amazonaws.com:27017/scratchDB', function() {
+mongoose.connect(mongoUrl, function() {
+  // WARNING: every connection will drop database, comment this out when ready to deploy
   mongoose.connection.db.dropDatabase();
 });
 mongoose.connection.once('open', () => {
@@ -31,10 +33,6 @@ app.get('/check', userController.getAllUsers);
 app.get('/rooms/:room', (req, res) => {
   res.sendFile(__dirname + '/public/host/host.html');
 });
-
-// app.get('/viewer/:user', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../user.html'));
-// });
 
 // click event creates user from req.body (obj)
 app.post('/create', userController.createUser);

@@ -46,6 +46,9 @@ const userController = {
         $set: {
           notes: newNotes
         }
+      },
+      {
+        'upsert': true
       }, function (err, result) {
         if (err) {
           return res.status(418).json(err);
