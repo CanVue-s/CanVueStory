@@ -16,11 +16,9 @@ const userController = {
     // console.log(req.body);
     User.create(req.body, (err, userRecord) => {
       if (err) {
-        console.log('create user error', err);
-        return res.end();
+        return res.status(400).end({error: 'User Creation Failed'});
       }
-      console.log('user created');
-      return res.end();
+      return res.status(200).json(userRecord);
     });
   },
 
