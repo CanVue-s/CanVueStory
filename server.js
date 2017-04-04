@@ -14,7 +14,8 @@ app.use(express.static(__dirname + '/client'));
 
 // static files to serve the current ongoing games and game room once you click
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/home/home.html');
+  res.sendFile(__dirname + '/client/vuejs/index.html');  
+  // res.sendFile(__dirname + '/client/home/home.html');
 })
 
 app.get('/rooms/:room', (req, res) => {
