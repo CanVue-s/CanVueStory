@@ -55,7 +55,16 @@ const userController = {
         return res.end();
       }
     )
+  },
+  //added verifyUser method in order to check for correct username/password
+  verifyUser(req, res) {
+    User.findOne({user: req.body.user}, (err, result) => {
+      if (result.password === req.body.password) {
+        res.redirect('/'); // or res.redirect('/home');
+      }
+    })
   }
+
 };
 
 module.exports = userController;

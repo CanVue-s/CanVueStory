@@ -2,9 +2,10 @@
 const URL = 'http://localhost:3000';
 let globalUserNum = 0;
 
-function sendObj(user, notes) {
+function sendObj(user, password, notes) {
   var obj = {
     user: user,
+    password: password,
     notes: notes
   }
   return JSON.stringify(obj);
@@ -14,7 +15,7 @@ function createUser(userNumber) {
   $.ajax({
     url: URL + '/create',
     type: "POST",
-    data: sendObj('user' + userNumber.toString(), ''),
+    data: sendObj('user' + userNumber.toString(), ,''),
     dataType: "json",
     contentType: "application/json"
   });
@@ -39,7 +40,7 @@ $(document).ready(function () {
     let user = event.target.innerHTML.slice(9, 10);
     user = parseInt(user) + 1;
 
-    // create or update tracker to keep track of numbers of users
+    // create or update tracker to keep track of numbers of users.
     $.ajax({
       url: URL + '/notes/tracker',
       type: "PUT",
