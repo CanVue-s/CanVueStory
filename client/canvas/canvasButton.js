@@ -1,9 +1,6 @@
 //need it to save canvas
 //const User = require('./../../server/models/userModel');
 
-//Create socket instance
-const socket = io();
-
 //Triggered off Clear Canvas button click
 function clearCanvas() {
     let canvas = document.getElementsByClassName('whiteboard')[0];
