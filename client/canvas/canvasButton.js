@@ -1,5 +1,4 @@
-//need it to save canvas
-//const User = require('./../../server/models/userModel');
+const URL = 'http://localhost:3000';
 
 //Triggered off Clear Canvas button click
 function clearCanvas() {
@@ -17,12 +16,34 @@ function clearCanvas() {
 
 function saveCanvas() {
     let canvas = document.getElementsByClassName('whiteboard')[0];
-    let fullQuality = canvas.toDataURL();
-    //fullQuality is the link that has the canvas
-    //need to do post request
+    let canvasURL = canvas.toDataURL();
+    //post request to '/createCanvas' so that we create a new Canvas DB entry
+    $.ajax({
+        url: URL + '/createCanvas',
+        type: "POST",
+        data: JSON.stringify({
+            roomNum: 1, //number is placeholder... need to be dynamic
+            dateCreated: new Date(),
+            canvas: canvasURL
+        }),
+        dataType: "json",
+        contentType: "application/json",
+        success: function(data) {
+            console.log('i am post request for canvas!')
+        }
+    });
+}
 
-    //User.findOneAndUpdate({user: "user1"}, {canvas: fullQuality});
-    console.log('i got updated!')
+//no usage for this function yet... no button exist to trigger this.
+function getCanvas() {
+    $.ajax({
+        url: URL + '/getCanvas',
+        type: 'GET',
+        datatype: 'json',
+        success: function(data) {
+            console.log("i am a canvas from DB", data);
+        }
+    })
 }
 
 //Accepts mass emit from line 14 of server.js to clear out it's context

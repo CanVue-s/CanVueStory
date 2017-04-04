@@ -1,4 +1,5 @@
 const userController = require('./../controllers/userController.js');
+const canvasController = require('./../controllers/canvasController.js');
 
 module.exports = (app) => {
   // check the database
@@ -10,7 +11,16 @@ module.exports = (app) => {
   // client side grabs username from url to generate this link to reach this route
   app.get('/notes/:user', userController.getUser);
 
-  app.put('/notes/:user', userController.updateUser);
+  app.put('/check', userController.updateUser);
+
+  //a route to check for username/password
+  app.post('/userCheckpt', userController.verifyUser);
+
+  //create Canvas 
+  app.post('/createCanvas', canvasController.createCanvas);
+
+  //get Canvas from DB
+  app.get('/getCanvas', canvasController.getCanvas);
 
   // // Delete a user from the database
   // // localhost://3000/user/"name"

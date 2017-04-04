@@ -5,7 +5,6 @@ const userController = {
   getAllUsers(req, res) {
     User.find({}, (err, results) => {
       if (err) {
-        console.log('find all users error', err);
         return res.end();
       }
       return res.status(200).json(results);
