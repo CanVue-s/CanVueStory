@@ -5,10 +5,15 @@
 
   //Creates the socket instance, canvas, colors, and 2d context of the canvas
   let socket = io();
+  
   let canvas = document.getElementsByClassName('whiteboard')[0];
   let colors = document.getElementsByClassName('color');
   let context = canvas.getContext('2d');
 
+  // connecting to individual rooms
+  socket.on('connectToRoom', (data) => {
+    console.log('connected to room', data)
+  });
 
   let current = {
     color: 'black',

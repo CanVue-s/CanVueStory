@@ -1,4 +1,3 @@
-// const URL = 'http://ec2-52-89-83-246.us-west-2.compute.amazonaws.com:3000';
 const URL = 'http://localhost:3000';
 
 function sendObj(user, notes) {
@@ -23,7 +22,7 @@ $(document).ready(function () {
       contentType: "application/json"
     });
     $('#saveDate').text('Saved at ' + new Date());
-    //window.open(notesUrl);
+    
   });
 
   $('#leave').on('click', function (event) {
