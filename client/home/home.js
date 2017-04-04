@@ -15,7 +15,7 @@ function createUser(userNumber) {
   $.ajax({
     url: URL + '/create',
     type: "POST",
-    data: sendObj('user' + userNumber.toString(), ,''),
+    data: sendObj('user' + userNumber.toString(), "", ''),
     dataType: "json",
     contentType: "application/json"
   });
