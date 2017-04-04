@@ -14,7 +14,7 @@ const canvasController = {
     },
 
     getCanvas(req, res) {
-        Canvas.findOne({dateCreated: req.body.dateCreated}, (err, result) => {
+        Canvas.findOne({roomNum: req.body.roomNum}, (err, result) => {
              if (err) {
                 return res.status(400).end({error: 'Getting Canvas Failed'});
             } else {
