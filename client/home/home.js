@@ -2,7 +2,7 @@
 const URL = 'http://localhost:3000';
 let globalUserNum = 0;
 
-function sendObj(user, password, notes) {
+function sendObj(user, password, notes, canvas) {
   var obj = {
     user: user,
     password: password,
@@ -15,7 +15,7 @@ function createUser(userNumber) {
   $.ajax({
     url: URL + '/create',
     type: "POST",
-    data: sendObj('user' + userNumber.toString(), ,''),
+    data: sendObj('user' + userNumber.toString(), "", ''), //redo to fit username after login
     dataType: "json",
     contentType: "application/json"
   });
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $.ajax({
       url: URL + '/notes/tracker',
       type: "PUT",
-      data: sendObj('tracker', user),
+      data: sendObj('tracker', user), 
       dataType: "json",
       contentType: "application/json"
     });

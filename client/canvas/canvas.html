@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Socket.Io whiteboard</title>
 	<link rel="stylesheet" href="./../host/host.css">
+	<script src="./../jquery.min.js"></script>
 </head>
 
 <body style='background-color: white'>
@@ -19,7 +20,9 @@
 		<div class="color yellow"></div>
 		<div class="color white"></div>
 		<button type="button" onclick="clearCanvas()">Reset Canvas</button>
-		<button type="button" onclick='saveCanvas()' class="saveImg">Save Canvas</button>
+		<button type="button" onclick="saveCanvas()" class="saveImg">Save Canvas</button>
+		<!--will probable need a button for getCanvas() to retrieve canvas from DB-->
+		<!--<button type="button" onclick='getCanvas()' class="saveImg">Get Canvas</button>-->
 	</div>
 	<script src="/socket.io/socket.io.js"></script>
 	
