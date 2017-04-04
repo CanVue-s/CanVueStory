@@ -4,6 +4,7 @@
 <head>
   <title>CanVueStory Login</title>
   <link rel="stylesheet" href="./styles.css">
+  <script src="./../jquery.min.js"></script>
 
   <style>
     body {
@@ -74,13 +75,13 @@
         <div><input type="text" placeholder="username" v-model="username"></div>
         <div><input type="password" placeholder="password" v-model="password"></div>
         <div><input type="text" placeholder="email" v-model="email"></div>
-        <div><button @click="signup" type="submit">Signup</button></div>
+        <div> <button @click="signup" type="submit"><a href="./../home/home.html">Signup</a></button></div>
       </div>
 
       <div id="login" v-else>
         <div><input type="text" placeholder="username" v-model="username"></div>
         <div><input type="password" placeholder="password" v-model="password"></div>
-        <div><a href="./../home/home.html"><button @click="login" type="submit">Login</button></div>
+        <div><button @click="login" type="submit"><a href="./../home/home.html">Login</a></button></div>
       </div>
     </div>
   </div>
@@ -107,6 +108,20 @@
       signup: function () {
         this.noAccount = true;
         // make post routes to server
+        $.ajax({
+          url: 'http://localhost:3000/create/',
+          type: 'POST',
+          //needed JSON.stringify because we get 400 (bad request) error
+          data: JSON.stringify({
+            user: this.username,
+            password: this.password
+          }),
+          dataType: "json",
+          contentType: "application/json",
+          success: function(data) {
+            console.log("successfully made post request")
+          }
+        })
       }
     }
   });

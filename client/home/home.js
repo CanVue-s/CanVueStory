@@ -11,15 +11,7 @@ function sendObj(user, password, notes, canvas) {
   return JSON.stringify(obj);
 }
 
-function createUser(userNumber) {
-  $.ajax({
-    url: URL + '/create',
-    type: "POST",
-    data: sendObj('user' + userNumber.toString(), "", ''), //redo to fit username after login
-    dataType: "json",
-    contentType: "application/json"
-  });
-}
+//took out createUser function because we are doing that when we log in.
 
 function getUserNumber() {
   $.get(URL + '/notes/tracker', function (data) {
