@@ -3,7 +3,7 @@
 
 <head>
   <title>CanVueStory Login</title>
-  <link rel="stylesheet" href="./styles.css">
+  <!--<link rel="stylesheet" href="./styles.css">-->
   <script src="./../jquery.min.js"></script>
 
   <style>
@@ -113,7 +113,7 @@
           type: 'POST',
           //needed JSON.stringify because we get 400 (bad request) error
           data: JSON.stringify({
-            user: this.username,
+            username: this.username,
             password: this.password
           }),
           dataType: "json",

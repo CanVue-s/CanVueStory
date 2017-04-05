@@ -10,8 +10,17 @@ function clearCanvas() {
 
     //Emits 'cleared' to server.js (line 13)
     socket.emit('cleared', {
-        Darrick: 'Is the Best!',
+        Cleared: 'Cleared',
     });
+
+    //Accepts mass emit from line 14 of server.js to clear out it's context
+    socket.on('cleared', function (data) {
+        let canvas = document.getElementsByClassName('whiteboard')[0];
+        let context = canvas.getContext('2d');
+
+    //Clears the canvas content
+    context.clearRect(0, 0, canvas.width, canvas.height);
+});
 }
 
 function saveCanvas() {

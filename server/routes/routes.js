@@ -9,7 +9,7 @@ module.exports = (app) => {
   app.post('/create', userController.createUser);
 
   // client side grabs username from url to generate this link to reach this route
-  app.get('/notes/:user', userController.getUser);
+  app.get('/notes/:username', userController.getUser);
 
   app.put('/check', userController.updateUser);
 
@@ -21,6 +21,9 @@ module.exports = (app) => {
 
   //get Canvas from DB
   app.get('/getCanvas/:createdAt', canvasController.getCanvas);
+
+  //test route to see if i can get all the canvas in DB & will be JWT test route
+  // app.get('/getAllCanvas', canvasController.getAllCanvas);
 
   // // Delete a user from the database
   // // localhost://3000/user/"name"
