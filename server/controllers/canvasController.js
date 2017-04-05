@@ -21,7 +21,18 @@ const canvasController = {
                 return res.status(200).json(result);
             }
         })
-    }
+    },
+    //JWT test route
+    // getAllCanvas(req, res) {
+    //     Canvas.find({},(err, result) => {
+    //         if (err) {
+    //             return res.status(400).end({error: 'Getting AllCanvas Failed'});
+    //         }
+    //         else {
+    //             return res.status(200).json(result)
+    //         }
+    //     })
+    // }
 
 };
 
