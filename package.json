@@ -18,6 +18,9 @@
     "nodemon": "^1.11.0",
     "request": "^2.81.0",
     "sequelize": "^3.30.4",
-    "socket.io": "^1.7.3"
+    "socket.io": "^1.7.3",
+    "vue-resource": "^1.2.1",
+    "vue-test": "file:vue",
+    "vue": "^2.2.1"
   }
 }
