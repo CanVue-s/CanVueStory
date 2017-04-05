@@ -129,3 +129,37 @@ html, body {
     height: 175px;
   }
 }
+
+/*Messenger*/
+.col-sm-12 {
+  position: relative;
+  border: 3px solid;
+  height: auto;
+  background-color: white;
+  height: 300px;
+}
+
+#messageSubmit {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: scroll;
+}
+
+#messageSubmit input {
+  width: 90%;
+}
+
+#messages { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+}
+
+#messages li { 
+  padding: 5px 10px; 
+}
+
+#messages li:nth-child(odd) { 
+  background: #eee; 
+}
