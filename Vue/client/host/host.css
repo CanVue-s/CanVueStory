@@ -1,0 +1,131 @@
+/*body {
+  background-color: grey;
+}*/
+
+
+.container {
+  margin-top: 20px;
+  height: auto;
+}
+
+/*Canvas*/
+.col-sm-8 {
+  border: 3px solid;
+}
+
+/*Notes*/
+.col-sm-4 {
+  border: 3px solid;
+  height: auto;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 400px;
+}
+
+a {
+  color: black;
+}
+
+.btn-default:hover {
+  background-color: indianred;
+}
+
+/**
+ * Fix user-agent
+ */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Canvas
+ */
+ .row {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     height: auto;
+     background-color: lightgray;
+ }
+.whiteboard {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+#htmlCanvas {
+    width: 725px;
+    height: 500px;
+}
+.colors {
+  position: fixed;
+}
+.colors button:hover {
+  background-color: mediumpurple;
+  border-radius: 3px;
+}
+.color {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+}
+.color.black { background-color: black; }
+.color.red { background-color: red; }
+.color.green { background-color: green; }
+.color.blue { background-color: blue; }
+.color.yellow { background-color: yellow; }
+.color.white { background: #ccc url(eraser.png); width: 48px; height: 48px};
+
+
+@media screen and (min-width: 1200px){ 
+  #htmlCanvas {
+    width: 725px;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 1000px) { 
+  #htmlCanvas {
+    width: 590px;
+  }
+}
+
+@media screen and (max-width: 999px) and (min-width: 992px) {
+  #htmlCanvas {
+    width: 585px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #htmlCanvas {
+    width: 443px;
+  }
+}
+
+@media screen and (max-width: 764px) {
+  .col-sm-8 {
+    width: 100%
+  }
+  #htmlCanvas {
+    width: 100%;
+  }
+  .col-sm-4 {
+    width: 100%;
+    height: 300px;
+  }
+  textarea {
+    width: 100%;
+    height: 175px;
+  }
+}

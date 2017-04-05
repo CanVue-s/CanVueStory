@@ -16,11 +16,11 @@ module.exports = (app) => {
   //a route to check for username/password
   app.post('/userCheckpt', userController.verifyUser);
 
-  //create Canvas 
+  //create Canvas
   app.post('/createCanvas', canvasController.createCanvas);
 
   //get Canvas from DB
-  app.get('/getCanvas', canvasController.getCanvas);
+  app.get('/getCanvas/:createdAt', canvasController.getCanvas);
 
   //test route to see if i can get all the canvas in DB & will be JWT test route
   // app.get('/getAllCanvas', canvasController.getAllCanvas);
