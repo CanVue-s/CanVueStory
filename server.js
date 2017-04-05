@@ -5,9 +5,12 @@ const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const path = require('path');
 
-//required 2 dependencies to enable JWT
+//required 3 dependencies to enable JWT
 const expressJWT = require('express-jwt');
 const jwt = require('jsonwebtoken');
+//to pass auth code as cookie
+const cookieParser = require('cookie-parser');
+
 
 const PORT = 3000;
 require('./server/mongoose/mongoose.js');
@@ -15,9 +18,10 @@ require('./server/mongoose/mongoose.js');
 // parse incoming request body information so that it can be used
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 //set middleware to block access and require auth token, except following link
-//app.use(expressJWT({secret: 'forbiddenCookieJar'}).unless({ path: ['/', '/create', '/getCanvas','/check'] }));
+//app.use(expressJWT({secret: 'forbiddenCookieJar'}).unless({ path: ['/', '/create', '/getCanvas','/check','/userCheckpt'] }));
 
 app.use(express.static(__dirname + '/client'));
 

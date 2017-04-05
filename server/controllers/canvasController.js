@@ -22,7 +22,7 @@ const canvasController = {
                 return res.status(200).json(result);
             }
         })
-    },
+    }
     //JWT test route
     // getAllCanvas(req, res) {
     //     Canvas.find({},(err, result) => {

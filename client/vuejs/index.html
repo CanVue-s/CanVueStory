@@ -92,12 +92,10 @@
 
 
   <script>
-
     function saveUser(key, value) {
       localStorage.setItem(key, JSON.stringify(value));
       console.log('saved')
     }
-
     var vm = new Vue({
       el: '#login-page',
       data: {
@@ -107,6 +105,27 @@
         noAccount: true
       },
       methods: {
+        login: function () {
+          this.noAccount = false;
+          // check if the data stored in server is accurate
+          $.ajax({
+            url: 'http://localhost:3000/userCheckpt/',
+            type: 'POST',
+            //needed JSON.stringify because we get 400 (bad request) error
+            data: JSON.stringify({
+              username: this.username,
+              password: this.password
+            }),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+              console.log("successfully attempting to verify request")
+            }
+          })
+        },
+        signup: function () {
+          this.noAccount = true;
+        },
         switch: function () {
           this.noAccount = !this.noAccount;
         },
@@ -119,6 +138,7 @@
         signup: function () {
 
           console.log(this.username);
+
           // make post routes to server
           $.ajax({
             url: 'http://localhost:3000/create/',
@@ -134,6 +154,7 @@
               console.log("successfully made post request")
             }
           })
+
           // store info into Session Storage
           saveUser('username', this.username);
         }

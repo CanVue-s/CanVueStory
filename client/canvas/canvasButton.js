@@ -1,5 +1,15 @@
 const URL = 'http://localhost:3000';
 
+//for calculating time
+function currentDate() {
+    let timestamp = new Date().getTime();
+    let todate = new Date(timestamp).getDate();
+    let tomonth = new Date(timestamp).getMonth()+1;
+    let toyear = new Date(timestamp).getFullYear();
+    let original_date = tomonth+''+todate+''+toyear;
+    return original_date
+}
+
 //Triggered off Clear Canvas button click
 function clearCanvas() {
     let canvas = document.getElementsByClassName('whiteboard')[0];
@@ -31,8 +41,8 @@ function saveCanvas() {
         url: URL + '/createCanvas',
         type: "POST",
         data: JSON.stringify({
-            roomNum: 1, //number is placeholder... need to be dynamic
-            dateCreated: new Date(),
+            roomNum: "testRoom", //number is placeholder... need to be dynamic
+            dateCreated: currentDate(),
             canvas: canvasURL
         }),
         dataType: "json",

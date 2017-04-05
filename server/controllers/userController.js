@@ -47,15 +47,16 @@ const userController = {
       }
     })
   },
-
+  //does not work yet...
   postNotes(req, res) {
     const note = req.body.notes;
-    User.create({notes: note}, (err, result) => {
-      if (err) {
-        return res.status(418).json(err);
-      } else {
-        return res.status(200).json(result.notes)
-      }
+    console.log("i am req.body from postNotes: ", req.body)
+    console.log('i am req.body.notes: ', req.body.notes)
+
+    //need to find either username or roomNum
+    User.findOneAndUpdate({username: req.body.username}, {"notes.$.note": note}, (err, result) => {
+      if (err) console.log('did not update new notes')
+      else console.log('successfully changed the note')
     })
   },
 
@@ -66,12 +67,14 @@ const userController = {
       console.log("req.body", req.body)
       console.log("result", result)
       if (req.body.password !== result.password) {
-        throw err
+        return res.status(400).end({error: 'User/Password Verification Failed'});
       } else {
         //we are creating and send back the access token
-        let myToken = jwt.sign({ username: req.body.username }, 'forbiddenCookieJar');
-        res.status(200).json(myToken);
+        let myToken = jwt.sign({username: req.body.username}, 'forbiddenCookieJar');
+        res.cookie('jwtcookies', myToken);
+        //res.status(200).json(myToken);
         //res.redirect('/');
+       // next();
       }
     })
   },

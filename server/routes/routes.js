@@ -4,27 +4,23 @@ const canvasController = require('./../controllers/canvasController.js');
 module.exports = (app) => {
   // check the database
   app.get('/check', userController.getAllUsers);
-
   // click event creates user from req.body (obj)
   app.post('/create', userController.createUser);
-
   // client side grabs username from url to generate this link to reach this route
   app.get('/user/:username', userController.getUser);
 
   //get notes
   app.get('/notes/:username', userController.getNotes);
-
-  //post notes
-  app.post('/notes', userController.postNotes);
+  //post notes... does not work yet
+  app.put('/notes', userController.postNotes);
 
   //a route to check for username/password
   app.post('/userCheckpt', userController.verifyUser);
 
-  //create Canvas
-  app.post('/createCanvas', canvasController.createCanvas);
-
   //get Canvas from DB
   app.get('/getCanvas/:roomNum', canvasController.getCanvas);
+  //create Canvas
+  app.post('/createCanvas', canvasController.createCanvas);
 
   // get current Rooms
   app.get('/getRooms', userController.getRooms);
