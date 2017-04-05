@@ -13,6 +13,18 @@ function sendObj(username, notes) {
 }
 
 $(document).ready(function () {
+
+  // submits message and emits it to the server for chat
+  // $('#messageSubmit').submit(() => {
+  //   socket.emit('chatMessage', $('#text').val())
+  //   $('#m').val('');
+  //   return false;
+  // })
+
+  // socket.on('chatMessage', (message) => {
+  //   $('#messages').append($('<li>').text(message));
+  // })
+
   let user = window.location.pathname.slice(12);
   let notesUrl = URL + '/notes/' + username;
 
