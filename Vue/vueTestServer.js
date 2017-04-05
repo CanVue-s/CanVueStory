@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const vueTestController = require('./vueTestController');
+const vueTestController = require('./Server/vueTestController');
 
 const PORT = 8080;
 
@@ -21,11 +21,15 @@ app.use(bodyParser.json());
 app.post('/', vueTestController.createUser);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.sendFile(path.join(__dirname, '/Transcript/index.html'));
 })
 
 app.get('/main.js', (req, res) => {
-  res.sendFile(path.join(__dirname, '/main.js'));
+  res.sendFile(path.join(__dirname, '/Transcript/main.js'));
+})
+
+app.get('/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Transcript/styles.css'));
 })
 
 app.get('/node_modules/vue-resource/dist/vue-resource.js', (req, res) => {
