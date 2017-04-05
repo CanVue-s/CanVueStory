@@ -2,10 +2,10 @@ const URL = 'http://localhost:3000';
 
 //calculate time of the creation
 function currentDate() {
-    let timestamp=new Date().getTime();
-    let todate=new Date(timestamp).getDate();
-    let tomonth=new Date(timestamp).getMonth()+1;
-    let toyear=new Date(timestamp).getFullYear();
+    let timestamp = new Date().getTime();
+    let todate = new Date(timestamp).getDate();
+    let tomonth = new Date(timestamp).getMonth()+1;
+    let toyear = new Date(timestamp).getFullYear();
     let original_date = tomonth+''+todate+''+toyear;
     return original_date
 }
