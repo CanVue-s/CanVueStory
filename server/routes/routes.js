@@ -20,7 +20,7 @@ module.exports = (app) => {
   app.post('/createCanvas', canvasController.createCanvas);
 
   //get Canvas from DB
-  app.get('/getCanvas/:createdAt', canvasController.getCanvas);
+  app.get('/getCanvas/:roomNum', canvasController.getCanvas);
 
   //test route to see if i can get all the canvas in DB & will be JWT test route
   // app.get('/getAllCanvas', canvasController.getAllCanvas);
