@@ -91,42 +91,56 @@
   <!--<script src="./index.js" type="text/javascript"></script>-->
 
 
-<script>
-  var vm = new Vue({
-    el: '#login-page',
-    data: {
-      username: '',
-      password: '',
-      email: '',
-      noAccount: true
-    },
-    methods: {
-      login: function () {
-        this.noAccount = false;
-        // check if the data stored in server is accurate
+  <script>
+    var vm = new Vue({
+      el: '#login-page',
+      data: {
+        username: '',
+        password: '',
+        email: '',
+        noAccount: true
       },
-      signup: function () {
-        this.noAccount = true;
-        // make post routes to server
-        $.ajax({
-          url: 'http://localhost:3000/create/',
-          type: 'POST',
-          //needed JSON.stringify because we get 400 (bad request) error
-          data: JSON.stringify({
-            username: this.username,
-            password: this.password
-          }),
-          dataType: "json",
-          contentType: "application/json",
-          success: function(data) {
-            console.log("successfully made post request")
-          }
-        })
+      methods: {
+        login: function () {
+          this.noAccount = false;
+          // check if the data stored in server is accurate
+          $.ajax({
+            url: 'http://localhost:3000/userCheckpt/',
+            type: 'POST',
+            //needed JSON.stringify because we get 400 (bad request) error
+            data: JSON.stringify({
+              username: this.username,
+              password: this.password
+            }),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+              console.log("successfully attempting to verify request")
+            }
+          })
+        },
+        signup: function () {
+          this.noAccount = true;
+          // make post routes to server
+          $.ajax({
+            url: 'http://localhost:3000/create/',
+            type: 'POST',
+            //needed JSON.stringify because we get 400 (bad request) error
+            data: JSON.stringify({
+              username: this.username,
+              password: this.password
+            }),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+              console.log("successfully made post request")
+            }
+          })
+        }
       }
-    }
-  });
+    });
 
-</script>
+  </script>
 
 
 </body>

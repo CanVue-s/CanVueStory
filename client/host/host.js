@@ -14,7 +14,7 @@ function sendObj(username, notes) {
   var obj = {
     username: username,
     notes: {
-      roomNum: 1, //hard coded, but should be dynamic
+      roomNum: "string", //hard coded, but should be dynamic
       dateCreated: currentDate(),
       note: notes
     }
@@ -23,17 +23,6 @@ function sendObj(username, notes) {
 }
 
 $(document).ready(function () {
-
-  // submits message and emits it to the server for chat
-  // $('#messageSubmit').submit(() => {
-  //   socket.emit('chatMessage', $('#text').val())
-  //   $('#m').val('');
-  //   return false;
-  // })
-
-  // socket.on('chatMessage', (message) => {
-  //   $('#messages').append($('<li>').text(message));
-  // })
 
   $('#save').on('click', function (event) {
     let notes = $('#notes').val();
