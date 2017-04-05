@@ -1,5 +1,8 @@
 const User = require('./../models/userModel');
 
+const expressJWT = require('express-jwt');
+const jwt = require('jsonwebtoken');
+
 const userController = {
 
   getAllUsers(req, res) {
@@ -22,8 +25,8 @@ const userController = {
   },
 
   getUser(req, res) {
-    const user = req.params.user;
-    User.findOne({ user: user }, (err, results) => {
+    const username = req.params.username;
+    User.findOne({ username: username }, (err, results) => {
       if (results === null) {
         return res.status(418).json(err);
       } else {
@@ -57,9 +60,17 @@ const userController = {
   },
   //added verifyUser method in order to check for correct username/password
   verifyUser(req, res) {
-    User.findOne({user: req.body.user}, (err, result) => {
-      if (result.password === req.body.password) {
-        res.redirect('/'); // or res.redirect('/home');
+    User.findOne({username: req.body.username}, (err, result) => {
+      //original login checker
+      console.log("req.body", req.body)
+      console.log("result", result)
+      if (req.body.password !== result.password) {
+        throw err
+      } else {
+        //we are creating and send back the access token
+        let myToken = jwt.sign({username: req.body.username}, 'forbiddenCookieJar');
+        res.status(200).json(myToken);
+        //res.redirect('/');
       }
     })
   }

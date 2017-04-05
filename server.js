@@ -4,12 +4,20 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 
+//required 2 dependencies to enable JWT
+const expressJWT = require('express-jwt');
+const jwt = require('jsonwebtoken');
+
 const PORT = 3000;
 require('./server/mongoose/mongoose.js');
 
 // parse incoming request body information so that it can be used
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+//set middleware to block access and require auth token, except following link
+//app.use(expressJWT({secret: 'forbiddenCookieJar'}).unless({ path: ['/', '/create', '/getCanvas','/check'] }));
+
 app.use(express.static(__dirname + '/client'));
 
 // static files to serve the current ongoing games and game room once you click
