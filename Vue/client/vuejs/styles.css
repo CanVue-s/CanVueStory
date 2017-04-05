@@ -1,0 +1,52 @@
+body {
+  background-color: #333333;
+  text-align: center;
+}
+
+#entry-route button {
+  width: 40%;
+  height: 40px;
+  background-color: #3ef95d;
+  margin: 10px;
+}
+
+#login-container {
+  height: 90vh;
+  margin: auto;
+  vertical-align: center;
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-page {
+  width: 380px;
+  background-color: #42b3ff;
+}
+
+#signup input {
+  width: 220px;
+  height: 20px;
+  margin: 3px;
+}
+
+#login input {
+  width: 220px;
+  height: 20px;
+  margin: 3px;
+}
+
+#signup button {
+  width: 85%;
+  height: 40px;
+  background-color: #ff1111;
+  margin: 10px;
+}
+
+#login button {
+  width: 40%;
+  height: 40px;
+  background-color: #ff1111;
+  margin: 10px;
+}

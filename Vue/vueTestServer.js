@@ -44,8 +44,38 @@ app.get('/messages', (req, res) => {
     res.json(users);
     // res.render('./../client/secret', { users: users });
   });
-});
+})
 
+app.get('/rooms/', (req, res) => {
+  res.sendFile(__dirname + '/client/host/host.html');
+})
 
+app.get('/host/host.css', (req, res) => {
+  res.sendFile(__dirname + '/client/host/host.css');
+})
+
+app.get('/host/host.js', (req, res) => {
+  res.sendFile(__dirname + '/client/host/host.js');
+})
+
+app.get('/canvas/canvas.html', (req, res) => {
+  res.sendFile(__dirname + '/client/canvas/canvas.html');
+})
+
+app.get('/canvas/canvas.js', (req, res) => {
+  res.sendFile(__dirname + '/client/canvas/canvas.js');
+})
+
+app.get('/host/eraser.png', (req, res) => {
+  res.sendFile(__dirname + '/client/host/eraser.png');
+})
+
+app.get('/canvas/canvasButton.js', (req, res) => {
+  res.sendFile(__dirname + '/client/canvas/canvasButton.js');
+})
+
+app.get('/socket.io/socket.io.js', (req, res) => {
+  res.sendFile(path.join(__dirname, '/node_modules/socket.io/socket.io.js'));
+})
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));

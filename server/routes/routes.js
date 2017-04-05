@@ -16,11 +16,11 @@ module.exports = (app) => {
   //a route to check for username/password
   app.post('/userCheckpt', userController.verifyUser);
 
-  //create Canvas 
+  //create Canvas
   app.post('/createCanvas', canvasController.createCanvas);
 
   //get Canvas from DB
-  app.get('/getCanvas', canvasController.getCanvas);
+  app.get('/getCanvas/:createdAt', canvasController.getCanvas);
 
   // // Delete a user from the database
   // // localhost://3000/user/"name"
