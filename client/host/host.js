@@ -1,11 +1,21 @@
 const URL = 'http://localhost:3000';
 
+//calculate time of the creation
+function currentDate() {
+    let timestamp=new Date().getTime();
+    let todate=new Date(timestamp).getDate();
+    let tomonth=new Date(timestamp).getMonth()+1;
+    let toyear=new Date(timestamp).getFullYear();
+    let original_date = tomonth+''+todate+''+toyear;
+    return original_date
+}
+
 function sendObj(username, notes) {
   var obj = {
     username: username,
     notes: {
       roomNum: 1, //hard coded, but should be dynamic
-      dateCreated: new Date(),
+      dateCreated: currentDate(),
       note: notes
     }
   }
@@ -25,13 +35,10 @@ $(document).ready(function () {
   //   $('#messages').append($('<li>').text(message));
   // })
 
-  let user = window.location.pathname.slice(12);
-  let notesUrl = URL + '/notes/' + username;
-
   $('#save').on('click', function (event) {
     let notes = $('#notes').val();
     $.ajax({
-      url: URL + '/notes/' + username,
+      url: URL + '/notes',
       type: "PUT",
       data: sendObj(username, notes),
       dataType: "json",

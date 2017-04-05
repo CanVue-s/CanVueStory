@@ -4,7 +4,7 @@ const canvasController = {
 
     createCanvas(req, res) {
         Canvas.create(req.body, (err, result) => {
-            console.log(req.body)
+            console.log("i am req.body from createCanvas: ", req.body)
             if (err) {
                 return res.status(400).end({error: 'Canvas Creation Failed'});
             } else {

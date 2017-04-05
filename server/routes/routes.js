@@ -9,9 +9,13 @@ module.exports = (app) => {
   app.post('/create', userController.createUser);
 
   // client side grabs username from url to generate this link to reach this route
-  app.get('/notes/:username', userController.getUser);
+  app.get('/user/:username', userController.getUser);
 
-  app.put('/check', userController.updateUser);
+  //get notes
+  app.get('/notes/:username', userController.getNotes);
+
+  //post notes
+  app.post('/notes', userController.postNotes);
 
   //a route to check for username/password
   app.post('/userCheckpt', userController.verifyUser);
