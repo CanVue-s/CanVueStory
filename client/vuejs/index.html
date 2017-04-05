@@ -67,8 +67,8 @@
   <div id="login-container">
     <div id="login-page">
       <div id="entry-route">
-        <button @click="signup">Sign Up</button>
-        <button @click="login">Login</button>
+        <button @click="switch">Sign Up</button>
+        <button @click="switch">Login</button>
       </div>
 
       <div id="signup" v-if="noAccount">
@@ -92,6 +92,10 @@
 
 
   <script>
+    function saveUser(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+      console.log('saved')
+    }
     var vm = new Vue({
       el: '#login-page',
       data: {
@@ -121,6 +125,20 @@
         },
         signup: function () {
           this.noAccount = true;
+        },
+        switch: function () {
+          this.noAccount = !this.noAccount;
+        },
+        login: function () {
+          // check if the data stored in server is accurate
+
+          // store info into Session Storage
+          // localStorage.username = this.username;
+        },
+        signup: function () {
+
+          console.log(this.username);
+
           // make post routes to server
           $.ajax({
             url: 'http://localhost:3000/create/',
@@ -136,6 +154,9 @@
               console.log("successfully made post request")
             }
           })
+
+          // store info into Session Storage
+          saveUser('username', this.username);
         }
       }
     });
