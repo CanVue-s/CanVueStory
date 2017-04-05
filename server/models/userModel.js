@@ -3,17 +3,19 @@ const Schema = mongoose.Schema;
 
 
 const noteSchema = new Schema({
-  roomNum: {type: Number},
-  dateCreated: {type: Date},
-  note: {type: String}
+  roomNum: {type: String, default: ''},
+  dateCreated: {type: Date, default: Date.now},
+  note: {type: String, default: ''}
 })
-
 
 const userSchema = new Schema({
   username: {type: String, required: true},
   password: {type: String, required: true},
+  room: {type: String, default: ''},
   notes: [noteSchema]
 });
+
+
 
 // collection is being created depending on what the export model is
 module.exports = mongoose.model('User', userSchema);
