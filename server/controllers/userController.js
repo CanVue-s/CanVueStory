@@ -57,24 +57,24 @@ const userController = {
         return res.status(200).json(result.notes)
       }
     })
-  }
+  },
 
   //added verifyUser method in order to check for correct username/password
   verifyUser(req, res) {
     User.findOne({username: req.body.username}, (err, result) => {
       //original login checker
-      console.log("req.body", req.body)
-      console.log("result", result)
+      // console.log("req.body", req.body)
+      // console.log("result", result)
       if (req.body.password !== result.password) {
-        throw err
+        throw err;
       } else {
         //we are creating and send back the access token
         let myToken = jwt.sign({username: req.body.username}, 'forbiddenCookieJar');
         res.status(200).json(myToken);
         //res.redirect('/');
       }
-    })
-  }
+    });
+  },
 
 };
 
