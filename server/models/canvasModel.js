@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  roomNum: {type: Number},
-  dateCreated: {type: Date},
+  roomNum: {type: String},
+  dateCreated: {type: String},
   canvas: {type: String}
 });
 

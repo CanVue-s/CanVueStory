@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const noteSchema = new Schema({
-  roomNum: {type: Number},
-  dateCreated: {type: Date},
-  note: {type: String}
+  roomNum: {type: String},
+  dateCreated: {type: String, default: Date.now},
+  note: {type: String, default: ''}
 })
-
 
 const userSchema = new Schema({
   username: {type: String, required: true},
