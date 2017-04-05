@@ -1,0 +1,43 @@
+{
+  "name": "vue-test",
+  "description": "A Vue.js front-end test for CanVueStory",
+  "version": "1.0.0",
+  "author": "Naomi Lai",
+  "scripts": {
+    "start": "node vueTestServer.js",
+    "webpack": "./node_modules/.bin/webpack -w",
+    "webpackServer": "node_modules/.bin/webpack-dev-server --hot --inline"
+  },
+  "dependencies": {
+    "axios": "^0.16.0",
+    "body-parser": "^1.17.1",
+    "expect": "^1.6.0",
+    "express": "^4.12.3",
+    "fs": "0.0.1-security",
+    "html-webpack-plugin": "^2.28.0",
+    "jquery": "^2.1.4",
+    "mongoose": "^4.9.3",
+    "net": "^1.0.2",
+    "vue": "^2.2.1",
+    "vue-resource": "^1.2.1",
+    "watchify": "^3.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "isomorphic-fetch": "^2.2.1",
+    "node-sass": "^4.5.1",
+    "react-dom": "^15.2.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.0",
+    "vue-date-filter": "^1.0.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  }
+}

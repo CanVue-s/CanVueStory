@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Learn Vue</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="card">
+      <header>{{title | capitalize }}</header>
+      <div>
+          <input id="itemForm" v-on:keypress.enter="addItem"/>
+          <button v-on:click="addItem">Add Dinosaur</button>
+      </div>
+      <ul>
+        <li v-for="(dino, index) in dinos">
+          <button v-on:click="deleteItem(index)">X</button>
+          <h4>{{ dino.text | capitalize }}</h4>
+          <span>The {{ dino.text | undercase }} weighs {{ dino.weight }}.</span>
+          <br>
+          <a href="">{{ dino.text | undercase | url }}</a>
+        </li>
+      </ul>
+      <ul>
+        <li>Total Dinosaurs: {{ totalDinos }} <span>Updated: {{ dinosUpdated }}</span></li>
+        <li>Total Species: {{ totalSpecies }} <span>Updated: {{ speciesUpdated }}</span></li>
+      </ul>
+    </div>
+    <!-- <script src="node_modules/vue/dist/vue.js"></script> -->
+    <!-- <script src="node_modules/vue-resource/dist/vue-resource.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+    <script src="./build/webpack-bundle.js"></script>
+  <script type="text/javascript" src="http://localhost:8080/build/webpack-bundle.js"></script></body>
+</html>
