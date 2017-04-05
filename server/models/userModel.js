@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const noteSchema = new Schema({
-  roomNum: {type: String, default: ''},
-  dateCreated: {type: Date, default: Date.now},
+  roomNum: {type: String},
+  dateCreated: {type: String, default: Date.now},
   note: {type: String, default: ''}
 })
 

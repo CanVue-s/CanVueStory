@@ -1,0 +1,124 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "vue-resource",
+        "scope": null,
+        "escapedName": "vue-resource",
+        "name": "vue-resource",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/eveafeline/Documents/Codesmith/projects/CanVueStory"
+    ]
+  ],
+  "_from": "vue-resource@latest",
+  "_id": "vue-resource@1.2.1",
+  "_inCache": true,
+  "_location": "/vue-resource",
+  "_nodeVersion": "7.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/vue-resource-1.2.1.tgz_1488288830037_0.12621883605606854"
+  },
+  "_npmUser": {
+    "name": "steffans",
+    "email": "steffan@schiewe.me"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {
+    "create-error-class": "3.0.2",
+    "duplexer3": "0.1.4",
+    "get-stream": "3.0.0",
+    "is-redirect": "1.0.0",
+    "is-retry-allowed": "1.1.0",
+    "is-stream": "1.1.0",
+    "lowercase-keys": "1.0.0",
+    "safe-buffer": "5.0.1",
+    "unzip-response": "2.0.1",
+    "url-parse-lax": "1.0.0"
+  },
+  "_requested": {
+    "raw": "vue-resource",
+    "scope": null,
+    "escapedName": "vue-resource",
+    "name": "vue-resource",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/",
+    "/vue-test"
+  ],
+  "_resolved": "http://registry.npmjs.org/vue-resource/-/vue-resource-1.2.1.tgz",
+  "_shasum": "b3f21dd0e1e491adf8a5be1fe48e586cefeaa8d5",
+  "_shrinkwrap": null,
+  "_spec": "vue-resource",
+  "_where": "/Users/eveafeline/Documents/Codesmith/projects/CanVueStory",
+  "browser": {
+    "got": false
+  },
+  "bugs": {
+    "url": "https://github.com/pagekit/vue-resource/issues"
+  },
+  "dependencies": {
+    "got": "^6.7.1"
+  },
+  "description": "The HTTP client for Vue.js",
+  "devDependencies": {
+    "buble": "^0.15.2",
+    "buble-loader": "^0.4.0",
+    "generate-release": "^0.11.0",
+    "jasmine-core": "^2.5.2",
+    "jest": "^19.0.2",
+    "replace-in-file": "^2.0.1",
+    "rollup": "^0.41.4",
+    "rollup-plugin-buble": "^0.15.0",
+    "uglify-js": "^2.7.5",
+    "vue": "^2.2.1",
+    "webpack": "^2.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "b3f21dd0e1e491adf8a5be1fe48e586cefeaa8d5",
+    "tarball": "https://registry.npmjs.org/vue-resource/-/vue-resource-1.2.1.tgz"
+  },
+  "gitHead": "4b87374a6b454d5576cc9c5541f7613464e8fa11",
+  "homepage": "https://github.com/pagekit/vue-resource#readme",
+  "jsnext:main": "dist/vue-resource.es2015.js",
+  "keywords": [
+    "vue",
+    "xhr",
+    "http",
+    "ajax"
+  ],
+  "license": "MIT",
+  "main": "dist/vue-resource.common.js",
+  "maintainers": [
+    {
+      "name": "yyx990803",
+      "email": "yyx990803@gmail.com"
+    },
+    {
+      "name": "steffans",
+      "email": "steffan@schiewe.me"
+    }
+  ],
+  "name": "vue-resource",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pagekit/vue-resource.git"
+  },
+  "scripts": {
+    "build": "node build/build.js",
+    "release": "node build/release.js",
+    "test": "jest --env=node",
+    "webpack": "webpack --config test/webpack.config.js"
+  },
+  "version": "1.2.1"
+}

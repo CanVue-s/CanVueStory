@@ -4,7 +4,7 @@ const canvasController = {
 
     createCanvas(req, res) {
         Canvas.create(req.body, (err, result) => {
-            console.log(req.body)
+            console.log("i am req.body from createCanvas: ", req.body)
             if (err) {
                 return res.status(400).end({error: 'Canvas Creation Failed'});
             } else {
@@ -14,8 +14,8 @@ const canvasController = {
     },
 
     getCanvas(req, res) {
-      
-        Canvas.findOne({roomNum: req.body.roomNum}, (err, result) => {
+      console.log(req.params.roomNum);
+        Canvas.findOne({roomNum: req.params.roomNum}, (err, result) => {
              if (err) {
                 return res.status(400).end({error: 'Getting Canvas Failed'});
             } else {

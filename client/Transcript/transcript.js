@@ -6,7 +6,9 @@ var card = new Vue({
   el: '#messages',
   data: {
     title: "Transcript",
-    canvasURL: ''
+    data: {
+        imageLink: ''
+    }
   },
   filters: {
     capitalize: function(value) {
@@ -24,16 +26,19 @@ var card = new Vue({
     addCanvas: function() {
       var input = document.getElementById('itemForm');
       const msg = {};
-      this.$http.get('/getCanvas').then(response => {
-        console.log(response.body.canvas);
-        // console.log(response.body);
+      this.$http.get('/getCanvas/1').then(response => {
+        console.log(response.body);
+        document.getElementById('canvasImg').src = response.body.canvas;
+        console.log(this.data.imageLink);
       }, response => {
         console.log('inside post request error');
       });
-
+    },
+    addNotes: function() {
+      
     },
     deleteItem: function(index) {
-      this.messages.splice(index, 1);
+      // this.messages.splice(index, 1);
     }
   }
 })

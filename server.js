@@ -3,6 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
+const path = require('path');
 
 //required 2 dependencies to enable JWT
 const expressJWT = require('express-jwt');
@@ -18,18 +19,25 @@ app.use(bodyParser.json());
 //set middleware to block access and require auth token, except following link
 //app.use(expressJWT({secret: 'forbiddenCookieJar'}).unless({ path: ['/', '/create', '/getCanvas','/check'] }));
 
-app.use(express.static(__dirname + '/client'));
+// app.use(express.static(__dirname + '/client'));
 
 // static files to serve the current ongoing games and game room once you click
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/vuejs/index.html');  
+  res.sendFile(__dirname + '/client/vuejs/index.html');
   // res.sendFile(__dirname + '/client/home/home.html');
 })
 
-app.get('/rooms/:room', (req, res) => {
+app.get('/rooms/canvas', (req, res) => {
   res.sendFile(__dirname + '/client/host/host.html');
 });
 
+app.get('/transcript', (req, res) => {
+  res.sendFile(__dirname + '/client/Transcript/transcript.html');
+});
+
+// app.use(express.static('client'));
+app.use(express.static('client/Transcript'));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 // requires server routes => located in server/routes
 require('./server/routes/routes.js')(app);
 

@@ -26,38 +26,39 @@ const userController = {
 
   getUser(req, res) {
     const username = req.params.username;
-    User.findOne({ username: username }, (err, results) => {
-      if (results === null) {
+    User.findOne({ username: username }, (err, result) => {
+      if (err) {
         return res.status(418).json(err);
       } else {
-        return res.status(200).json(results);
+        return res.status(200).json(result);
       }
     });
   },
 
-  updateUser(req, res) {
-    const user = req.params.user;
-    const newNotes = req.body.notes;
-    console.log(req.body);
-
-    User.update(
-      { user: user },
-      {
-        $set: {
-          notes: newNotes
-        }
-      },
-      {
-        'upsert': true
-      }, function (err, result) {
-        if (err) {
-          return res.status(418).json(err);
-        }
-        console.log('updated!');
-        return res.end();
+  getNotes(req, res) {
+    const username = req.params.username;
+    console.log("i am username from getNotes: ", username)
+    User.findOne({username: username}, (err, result) => {
+      console.log('i am result from getNotes: ', result)
+      if (err) {
+        return res.status(418).json(err);
+      } else {
+        return res.status(200).json(result.notes)
       }
-    )
+    })
   },
+
+  postNotes(req, res) {
+    const note = req.body.notes;
+    User.create({notes: note}, (err, result) => {
+      if (err) {
+        return res.status(418).json(err);
+      } else {
+        return res.status(200).json(result.notes)
+      }
+    })
+  }
+
   //added verifyUser method in order to check for correct username/password
   verifyUser(req, res) {
     User.findOne({ username: req.body.username }, (err, result) => {
