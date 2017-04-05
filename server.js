@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 //set middleware to block access and require auth token, except following link
 //app.use(expressJWT({secret: 'forbiddenCookieJar'}).unless({ path: ['/', '/create', '/getCanvas','/check'] }));
 
-// app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/client'));
 
 // static files to serve the current ongoing games and game room once you click
 app.get('/', (req, res) => {

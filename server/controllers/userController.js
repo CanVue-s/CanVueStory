@@ -57,7 +57,7 @@ const userController = {
         return res.status(200).json(result.notes)
       }
     })
-  }
+  },
 
   //added verifyUser method in order to check for correct username/password
   verifyUser(req, res) {
