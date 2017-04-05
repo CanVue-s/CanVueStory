@@ -1,3 +1,5 @@
+const userController = require('./../controllers/userController.js');
+
 module.exports = (io) => {
 
   // On initial server connection, socket passed to onConnection function.
@@ -15,6 +17,7 @@ module.exports = (io) => {
     socket.on('join', (room) => {
       socket.join(room);
       socket.room = room;
+      
       console.log('joined room', room);
     })
 

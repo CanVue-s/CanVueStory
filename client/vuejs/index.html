@@ -67,8 +67,8 @@
   <div id="login-container">
     <div id="login-page">
       <div id="entry-route">
-        <button @click="signup">Sign Up</button>
-        <button @click="login">Login</button>
+        <button @click="switch">Sign Up</button>
+        <button @click="switch">Login</button>
       </div>
 
       <div id="signup" v-if="noAccount">
@@ -91,42 +91,56 @@
   <!--<script src="./index.js" type="text/javascript"></script>-->
 
 
-<script>
-  var vm = new Vue({
-    el: '#login-page',
-    data: {
-      username: '',
-      password: '',
-      email: '',
-      noAccount: true
-    },
-    methods: {
-      login: function () {
-        this.noAccount = false;
-        // check if the data stored in server is accurate
-      },
-      signup: function () {
-        this.noAccount = true;
-        // make post routes to server
-        $.ajax({
-          url: 'http://localhost:3000/create/',
-          type: 'POST',
-          //needed JSON.stringify because we get 400 (bad request) error
-          data: JSON.stringify({
-            username: this.username,
-            password: this.password
-          }),
-          dataType: "json",
-          contentType: "application/json",
-          success: function(data) {
-            console.log("successfully made post request")
-          }
-        })
-      }
-    }
-  });
+  <script>
 
-</script>
+    function saveUser(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+      console.log('saved')
+    }
+
+    var vm = new Vue({
+      el: '#login-page',
+      data: {
+        username: '',
+        password: '',
+        email: '',
+        noAccount: true
+      },
+      methods: {
+        switch: function () {
+          this.noAccount = !this.noAccount;
+        },
+        login: function () {
+          // check if the data stored in server is accurate
+
+          // store info into Session Storage
+          // localStorage.username = this.username;
+        },
+        signup: function () {
+
+          console.log(this.username);
+          // make post routes to server
+          $.ajax({
+            url: 'http://localhost:3000/create/',
+            type: 'POST',
+            //needed JSON.stringify because we get 400 (bad request) error
+            data: JSON.stringify({
+              username: this.username,
+              password: this.password
+            }),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+              console.log("successfully made post request")
+            }
+          })
+          // store info into Session Storage
+          saveUser('username', this.username);
+        }
+      }
+    });
+
+  </script>
 
 
 </body>
