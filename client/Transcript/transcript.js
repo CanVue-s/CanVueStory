@@ -1,9 +1,6 @@
-// const App = require('App.vue');
-// Vue.http.headers.common['Access-Control-Allow-Origin'] = value;
-
 
 var card = new Vue({
-  el: '#messages',
+  el: '#canvases',
   data: {
     title: "Transcript",
     data: {
@@ -34,11 +31,22 @@ var card = new Vue({
         console.log('inside post request error');
       });
     },
+    loadCanvas: function() {
+      this.$http.get('/getCanvas/testRoom').then(response => {
+        console.log(response.body);
+        document.getElementById('canvasImg').src = response.body.canvas;
+        console.log(this.data.imageLink);
+      }, response => {
+        console.log('inside post request error');
+      });
+    },
     addNotes: function() {
-      
+
     },
     deleteItem: function(index) {
       // this.messages.splice(index, 1);
     }
   }
 })
+
+card.loadCanvas();

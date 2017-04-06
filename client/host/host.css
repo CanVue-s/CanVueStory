@@ -1,3 +1,7 @@
+body {
+  background: url(images/cork-bg.png);
+}
+
 h2 {
   font-family: 'Cabin Sketch', cursive;
 }

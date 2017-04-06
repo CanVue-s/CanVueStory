@@ -23,6 +23,18 @@ const canvasController = {
             }
         })
     },
+
+    getAllCanvas(req, res) {
+      // console.log(req.params.roomNum);
+        Canvas.find({}, (err, result) => {
+             if (err) {
+                return res.status(400).end({error: 'Getting Canvas Failed'});
+            } else {
+              console.log(result);
+                return res.status(200).json(result);
+            }
+        })
+    },
     //JWT test route
     // getAllCanvas(req, res) {
     //     Canvas.find({},(err, result) => {
