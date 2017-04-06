@@ -33,8 +33,7 @@ module.exports = (app) => {
 
   //update player when they join room
   app.put('/rooms/:room', userController.joinRoom);
-
-  app.get('/allRooms', userController.getRooms);
+  
   //test route to see if i can get all the canvas in DB & will be JWT test route
   // app.get('/getAllCanvas', canvasController.getAllCanvas);
 
