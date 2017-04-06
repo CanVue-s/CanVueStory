@@ -10,7 +10,7 @@
   // this uses params from the url string
   let room = localStorage.room;
   socket.emit('join', room);
-  
+
   let canvas = document.getElementsByClassName('whiteboard')[0];
   let colors = document.getElementsByClassName('color');
   let context = canvas.getContext('2d');
@@ -50,16 +50,35 @@
     //Adds a new point and creates a line TO that point FROM the last specified point
     context.lineTo(x1, y1);
     context.strokeStyle = color;
-
+    console.log(mode);
     //Checks if client has selected the eraser and makes lineWidth larger for faster erasing
-    if (context.strokeStyle == '#ffffff') {
-      context.lineWidth = 100;
-    } else {
+    if(mode=="pen"){
+      context.globalCompositeOperation="source-over";
+      // context.moveTo(lastX,lastY);
+      // context.lineTo(mouseX,mouseY);
       context.lineWidth = 5;
+      context.stroke();
+    }else{
+      context.globalCompositeOperation="destination-out";
+      // context.arc(lastX,lastY,8,0,Math.PI*2,false);
+      context.lineWidth = 100;
+      context.fill();
+      context.stroke();
     }
 
+    // if (context.strokeStyle == '#ffffff') {
+    //   context.lineWidth = 100;
+    //   context.globalCompositionOperation = "destination-out";
+    //   // context.arc(lastX,lastY,8,0,Math.PI*2,false);
+    //   // context.fill();
+    //   context.stroke();
+    // } else {
+    //   context.lineWidth = 5;
+    //   context.stroke();
+    // }
+
     //Actually draws the path you have defined with all those moveTo() and lineTo() methods
-    context.stroke();
+
 
     context.closePath();
 
@@ -102,7 +121,8 @@
 
   //Retrieves the specific color element from the DOM & sets current variable to new color value
   function onColorUpdate(e) {
-    current.color = e.target.className.split(' ')[1];
+    current.color = e.target.id;
+    // current.color = e.target.className.split(' ')[1];
   }
 
   //This limits the number of events per second. Functional without it, but limits burdening the server with updates
@@ -123,6 +143,14 @@
     let h = canvas.height;
     drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
   }
+
+  var mode="eraser";
+  $("#black").click(function(){ mode="pen"; });
+  $("#red").click(function(){ mode="pen"; });
+  $("#green").click(function(){ mode="pen"; });
+  $("#blue").click(function(){ mode="pen"; });
+  $("#yellow").click(function(){ mode="pen"; });
+  $("#eraser").click(function(){ mode="eraser"; });
 
   //Function to adjust canvas to size of window
   function onResize() {

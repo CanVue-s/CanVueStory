@@ -5,29 +5,32 @@
 	<meta charset="UTF-8">
 	<title>Socket.Io whiteboard</title>
 	<link rel="stylesheet" href="./../host/host.css">
-	<script src="./../jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet">
+  <script src="./../jquery.min.js"></script>
 </head>
-
-<body style='background-color: white'>
-
+<!-- <body style='background-color: white'> -->
+<body style="background-image: url(https://image.freepik.com/free-vector/white-canvas-background_1053-239.jpg)">
 	<canvas class="whiteboard"></canvas>
 
-	<div class="colors">
-		<div class="color black"></div>
-		<div class="color red"></div>
-		<div class="color green"></div>
-		<div class="color blue"></div>
-		<div class="color yellow"></div>
-		<div class="color white"></div>
-		<button type="button" onclick="clearCanvas()">Reset Canvas</button>
-		<button type="button" onclick="saveCanvas()" class="saveImg">Save Canvas</button>
+	<div class="colors" style="background-image: url(http://freewebelements.com/wp-content/uploads/2012/12/light-wood-texture.jpg); width: 100%;">
+		<img src="./images/black-splatter.png" class="color pen" id="black"></img>
+    <img src="./images/red-splatter.png" class="color pen" id="red"></img>
+    <img src="./images/green-splatter.png" class="color pen" id="green"></img>
+    <img src="./images/blue-splatter.png" class="color pen" id="blue"></img>
+    <img src="./images/yellow-splatter.png" class="color pen" id="yellow"></img>
+		<img src="http://www.pngpix.com/wp-content/uploads/2016/08/PNGPIX-COM-Eraser-PNG-Transparent-Image.png" class="color" id="eraser"></img>
+    <!-- <div onclick="clearCanvas()" style="color: black;">Reset</div>
+    <div onclick="saveCanvas()" style="color: black;">Save</div> -->
+		<button type="button" onclick="clearCanvas()" class="btn btn-default" style="font-family: 'Cabin Sketch', cursive;">Reset Canvas</button>
+		<button type="button" onclick="saveCanvas()" class="saveImg btn btn-default" style="font-family: 'Cabin Sketch', cursive;">Save Canvas</button>
 		<!--will probable need a button for getCanvas() to retrieve canvas from DB-->
 		<!--<button type="button" onclick='getCanvas()' class="saveImg">Get Canvas</button>-->
 	</div>
 	<script src="/socket.io/socket.io.js"></script>
-	
+
 	<script src="./canvasButton.js"></script>
-	
+
 	<script src="./canvas.js"></script>
 </body>
 

@@ -38,8 +38,9 @@ app.get('/transcript', (req, res) => {
   res.sendFile(__dirname + '/client/Transcript/transcript.html');
 });
 
-// app.use(express.static('client'));
+app.use(express.static('client'));
 app.use(express.static('client/Transcript'));
+app.use(express.static('client/host'));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 // requires server routes => located in server/routes
 require('./server/routes/routes.js')(app);
