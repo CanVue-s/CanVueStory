@@ -2,7 +2,7 @@ $(document).ready(function () {
 
   window.setInterval(() => {
     $.ajax({
-      url: `http://localhost:3000/allRooms`,
+      url: `/getRooms`,
       type: "GET",
     }).then((results) => {
       let keys = Object.keys(results);
@@ -24,7 +24,7 @@ $(document).ready(function () {
     console.log($('#input-value').val());
     
     $.ajax({
-      url: `http://localhost:3000/rooms/${$(this).text()}`,
+      url: `/rooms/${$(this).text()}`,
       type: "PUT",
       data: JSON.stringify({
         username: localStorage.username,
@@ -46,7 +46,7 @@ $(document).ready(function () {
     localStorage.room = $(this).text();
 
     $.ajax({
-      url: `http://localhost:3000/rooms/${$(this).text()}`,
+      url: `/rooms/${$(this).text()}`,
       type: "PUT",
       data: JSON.stringify({
         username: localStorage.username,
@@ -59,6 +59,6 @@ $(document).ready(function () {
       }
     })
 
-    location.href = `http://localhost:3000/rooms/${$(this).text()}`
+    location.href = `/rooms/${$(this).text()}`
   });
 });
