@@ -26,6 +26,8 @@ module.exports = (app) => {
   //get Canvas from DB
   app.get('/getCanvas/:roomNum', canvasController.getCanvas);
 
+  app.get('getCanvas/allCanvas', canvasController.getAllCanvas);
+
   // get current Rooms
   app.get('/getRooms', userController.getRooms);
 
