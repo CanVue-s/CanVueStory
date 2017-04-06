@@ -6,28 +6,23 @@ $(document).ready(function () {
       type: "GET",
     }).then((results) => {
       let keys = Object.keys(results);
-
+      console.log(results);
       $('#rooms').empty()
 
       for (let i = 0; i < keys.length; i += 1) {
         if (keys[i] !== "") {
-          $('#rooms').append(`<div class='link-div well'><a class="eachRoom">Room: ${keys[i]} Users: ${results[keys[i]]}</a></div>`)
+          $('#rooms').append(`<div class='link-div well'><a>Room: </a><a class="eachRoom">${keys[i]}</a><a> Users: ${results[keys[i]]}</a></div>`)
         }
       }
     })
   }, 500)
 
-  // let rooms = [];
-  // // updates the rooms and num of users in them
-  // setInterval(() => {
-  // }, 500)
-
   // dynamically creates a new room
   $('#create-room').submit((event) => {
     event.preventDefault();
 
-    // $('#input-value').val();
-
+    console.log($('#input-value').val());
+    
     $.ajax({
       url: `http://localhost:3000/rooms/${$(this).text()}`,
       type: "PUT",
@@ -42,9 +37,9 @@ $(document).ready(function () {
       }
     })
 
-    let roomName = $('#create-room input').val();
-    $('#rooms').append(`<div class='link-div well'><a class="eachRoom">${roomName}</a></div>`)
-    $('#create-room input').val('');
+    // let roomName = $('#create-room input').val();
+    // $('#rooms').append(`<div class='link-div well'><a class="eachRoom">${roomName}</a></div>`)
+    // $('#create-room input').val('');
   })
 
   $('body').on('click', 'a.eachRoom', function () {
