@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 //required 2 dependencies to enable JWT
 const expressJWT = require('express-jwt');
@@ -11,6 +12,8 @@ const jwt = require('jsonwebtoken');
 
 const PORT = 3000;
 require('./server/mongoose/mongoose.js');
+
+app.use(cors());
 
 // parse incoming request body information so that it can be used
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +30,7 @@ app.get('/', (req, res) => {
   // res.sendFile(__dirname + '/client/home/home.html');
 })
 
-app.get('/rooms/canvas', (req, res) => {
+app.get('/rooms/:room', (req, res) => {
   res.sendFile(__dirname + '/client/host/host.html');
 });
 
