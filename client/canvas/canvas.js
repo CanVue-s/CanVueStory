@@ -9,6 +9,8 @@
   // grabs the room that the socket is in and makes sure that it is connected to it
   // this uses params from the url string
   let room = localStorage.room;
+  let user = localStorage.username;
+
   socket.emit('join', room);
 
   let canvas = document.getElementsByClassName('whiteboard')[0];
